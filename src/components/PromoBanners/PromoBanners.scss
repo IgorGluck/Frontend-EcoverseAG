@@ -1,0 +1,52 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.promo {
+  display: flex;
+  gap: 13px;
+  margin-top: $section-gap;
+
+  &__banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 0 0 634px;
+    height: 350px;
+    padding: 0 44.18px 40px;
+    border-radius: 20px;
+    color: $color-white;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.75) 100%),
+      var(--promo-image) center / cover no-repeat,
+      $color-purple;
+
+    &--1 {
+      --promo-image: url('/images/partner-1.jpg');
+    }
+
+    &--2 {
+      --promo-image: url('/images/partner-2.jpg');
+    }
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+  }
+
+  &__description {
+    max-width: 360px;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__button {
+    @include button-yellow(144.69px, 48px, 6px);
+    margin-top: 32px;
+    font-size: 16px;
+    @include focus-ring;
+  }
+}

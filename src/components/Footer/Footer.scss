@@ -1,0 +1,115 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  &__main {
+    min-height: 282px;
+    padding: 42px 80px;
+    background: $color-purple;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    max-width: $container-width;
+    margin-inline: auto;
+  }
+
+  &__brand {
+    width: 354px;
+    margin-right: auto;
+    color: $color-white;
+  }
+
+  &__logo {
+    width: 164px;
+    height: 48px;
+    object-fit: contain;
+    object-position: left;
+    color: $color-white;
+  }
+
+  &__description {
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    color: $color-white;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 26px;
+    margin-top: 27px;
+    color: $color-social;
+
+    a {
+      display: block;
+      @include focus-ring;
+    }
+  }
+
+  &__divider {
+    flex: none;
+    width: 1px;
+    height: 198px;
+    margin-right: 100px;
+    background: rgba(40, 40, 40, 0.18);
+  }
+
+  &__nav {
+    display: flex;
+    gap: 100px;
+  }
+
+  &__column {
+    &:nth-child(1) {
+      width: 121px;
+    }
+
+    &:nth-child(2) {
+      width: 150px;
+    }
+
+    &:nth-child(3) {
+      width: 160px;
+    }
+
+    &--secondary a {
+      font-family: $font-secondary;
+      
+    }
+  }
+
+  &__column-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    color: $color-white;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+
+    a {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      color: $color-white;
+      @include focus-ring;
+    }
+  }
+
+  &__copyright {
+    height: 46.84px;
+    display: grid;
+    place-items: center;
+    background: $color-purple;
+    font-size: 13px;
+    font-weight: 300;
+    color: $color-white;
+  }
+}

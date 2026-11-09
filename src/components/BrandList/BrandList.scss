@@ -1,0 +1,31 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.brands {
+  margin-top: $section-gap;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    color: $color-blue;
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 42px;
+    margin-top: 32px;
+  }
+
+  &__item a {
+    display: grid;
+    place-items: center;
+    width: 211px;
+    height: 211px;
+    border-radius: 105.5px;
+    background: $color-white;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.13);
+    @include focus-ring;
+  }
+}

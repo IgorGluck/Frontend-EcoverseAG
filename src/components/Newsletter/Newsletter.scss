@@ -1,0 +1,106 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.newsletter {
+  height: 162px;
+  margin-top: $section-gap;
+  background: $color-purple;
+  color: $color-white;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  &__description {
+    max-width: 360px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+  }
+
+  &__fields {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__input {
+    width: 233px;
+    height: 42px;
+    padding: 12px 24px;
+    border: 1px solid $color-input-border;
+    border-radius: 8px;
+    background: $color-white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $color-gray-dark;
+
+    &::placeholder {
+      color: $color-input-placeholder;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-yellow;
+      outline-offset: 2px;
+    }
+  }
+
+  &__button {
+    width: 157px;
+    height: 42px;
+    border-radius: 8px;
+    background: $color-yellow;
+    font-size: 14px;
+    font-weight: 600;
+    color: #161615;
+    transition: filter 0.2s;
+    @include focus-ring;
+
+    &:hover {
+      filter: brightness(0.94);
+    }
+  }
+
+  &__check {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    cursor: pointer;
+
+    input {
+      appearance: none;
+      flex: none;
+      width: 15px;
+      height: 15px;
+      border: 1px solid $color-checkbox-border;
+      border-radius: 1px;
+      background: $color-checkbox-bg;
+      cursor: pointer;
+
+      &:checked {
+        background:
+          linear-gradient($color-checkbox-border, $color-checkbox-border) center / 7px 7px no-repeat,
+          $color-checkbox-bg;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-yellow;
+        outline-offset: 2px;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+@mixin container {
+  width: 100%;
+  max-width: $container-width;
+  margin-inline: auto;
+}
+
+@mixin button-yellow($width, $height, $radius) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background: $color-yellow;
+  color: $color-purple;
+  font-weight: 700;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.94);
+  }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-blue-highlight;
+    outline-offset: 2px;
+  }
+}

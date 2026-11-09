@@ -1,0 +1,51 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  height: 390px;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0) 80%),
+    url('/images/hero-bg.jpg') center / cover no-repeat,
+    $color-purple;
+
+  &__inner {
+    position: relative;
+    max-width: $page-width;
+    height: 100%;
+    margin-inline: auto;
+    color: $color-white;
+  }
+
+  &__title {
+    position: absolute;
+    top: 78px;
+    left: 81px;
+    width: 640px;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 50px;
+  }
+
+  &__offer {
+    position: absolute;
+    top: 196px;
+    left: 78px;
+    font-size: 32px;
+    font-weight: 400;
+
+    strong {
+      font-weight: 700;
+      color: $color-yellow;
+    }
+  }
+
+  &__button {
+    @include button-yellow(206px, 50px, 5px);
+    position: absolute;
+    top: 285px;
+    left: 87px;
+    font-size: 16px;
+    font-weight: 600;
+    @include focus-ring;
+  }
+}

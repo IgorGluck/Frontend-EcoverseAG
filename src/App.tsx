@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Header from './components/Header/Header';
+import HeroBanner from './components/HeroBanner/HeroBanner';
+import CategoryList from './components/CategoryList/CategoryList';
+import ProductShowcase from './components/ProductShowcase/ProductShowcase';
+import PromoBanners from './components/PromoBanners/PromoBanners';
+import BrandList from './components/BrandList/BrandList';
+import Newsletter from './components/Newsletter/Newsletter';
+import Footer from './components/Footer/Footer';
+import Modal from './components/Modal/Modal';
+import { useProducts } from './hooks/useProducts';
+import type { Product } from './types/product';
 
-function App() {
+export default function App() {
+  const { products, loading, error } = useProducts();
+  const [selected, setSelected] = useState<Product | null>(null);
+
+  const showcase = { products, loading, error, onSelect: setSelected };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main>
+        <HeroBanner />
+        <CategoryList />
+        <ProductShowcase id="produtos" title="Produtos relacionados" variant="tabs" {...showcase} />
+        <PromoBanners />
+        <ProductShowcase title="Produtos relacionados" variant="see-all" {...showcase} />
+        <PromoBanners />
+        <BrandList />
+        <ProductShowcase title="Produtos relacionados" variant="see-all" {...showcase} />
+      </main>
+      <Newsletter />
+      <Footer />
+      {selected && <Modal product={selected} onClose={() => setSelected(null)} />}
+    </>
   );
 }
-
-export default App;
